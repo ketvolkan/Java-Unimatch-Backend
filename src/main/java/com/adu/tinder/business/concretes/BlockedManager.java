@@ -33,7 +33,22 @@ public class BlockedManager implements com.adu.tinder.business.abstracts.Blocked
     }
 
     @Override
+    public DataResult<List<Blocked>> getAllByActive(boolean active) {
+        return null;
+    }
+
+    @Override
     public Result add(Blocked blocked) {
+        return null;
+    }
+
+    @Override
+    public Result delete(Blocked blocked) {
+        return null;
+    }
+
+    @Override
+    public Result update(Blocked blocked) {
         return null;
     }
 
