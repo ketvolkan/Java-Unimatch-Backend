@@ -1,5 +1,6 @@
 package com.adu.tinder.business.concretes;
 
+import com.adu.tinder.business.abstracts.MatchService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
 import com.adu.tinder.entities.concretes.Match;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MatchManager implements com.adu.tinder.business.abstracts.MatchManager {
+public class MatchManager implements MatchService {
     @Override
     public DataResult<List<Match>> getAll() {
         return null;

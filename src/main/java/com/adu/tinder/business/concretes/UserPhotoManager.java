@@ -1,5 +1,6 @@
 package com.adu.tinder.business.concretes;
 
+import com.adu.tinder.business.abstracts.UserPhotoService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
 import com.adu.tinder.entities.concretes.UserPhoto;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserPhotoManager implements com.adu.tinder.business.abstracts.UserPhotoManager{
+public class UserPhotoManager implements UserPhotoService {
 
     @Override
     public Result add(UserPhoto userPhoto) {

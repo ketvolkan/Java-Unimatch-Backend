@@ -1,5 +1,6 @@
 package com.adu.tinder.business.concretes;
 
+import com.adu.tinder.business.abstracts.BlockedService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
 import com.adu.tinder.dataAccess.abstracts.BlockedDao;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BlockedManager implements com.adu.tinder.business.abstracts.BlockedManager {
+public class BlockedManager implements BlockedService {
     BlockedDao blockedDao;
     @Autowired
     BlockedManager(BlockedDao blockedDao){

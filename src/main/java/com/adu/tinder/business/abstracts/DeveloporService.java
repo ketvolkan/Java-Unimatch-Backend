@@ -7,7 +7,7 @@ import com.adu.tinder.entities.concretes.Developer;
 
 import java.util.List;
 
-public interface DeveloporManager {
+public interface DeveloporService {
     DataResult<List<Developer>> getAll();
     DataResult<List<Developer>> getAllById(int id);
     Result add(Developer developer);

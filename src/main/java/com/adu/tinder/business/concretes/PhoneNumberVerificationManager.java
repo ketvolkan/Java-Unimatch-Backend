@@ -1,5 +1,6 @@
 package com.adu.tinder.business.concretes;
 
+import com.adu.tinder.business.abstracts.PhoneNumberVerificationService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
 import com.adu.tinder.entities.concretes.PhoneNumberVerification;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PhoneNumberVerificationManager implements com.adu.tinder.business.abstracts.PhoneNumberVerificationManager {
+public class PhoneNumberVerificationManager implements PhoneNumberVerificationService {
     @Override
     public Result add(PhoneNumberVerification phoneNumberVerification) {
         return null;

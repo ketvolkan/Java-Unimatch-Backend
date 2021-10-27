@@ -1,4 +1,4 @@
 package com.adu.tinder.api.controllers;
 
-public class UserQuestionsController {
+public class UserAnswerController {
 }

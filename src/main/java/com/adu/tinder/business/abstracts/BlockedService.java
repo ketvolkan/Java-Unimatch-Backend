@@ -7,7 +7,7 @@ import com.adu.tinder.entities.concretes.Blocked;
 
 import java.util.List;
 
-public interface BlockedManager {
+public interface BlockedService {
     DataResult<List<Blocked>> getAll();
     DataResult<List<Blocked>> getAllByBlockedId(int id);
     DataResult<List<Blocked>> getAllByBlockingId(int id);

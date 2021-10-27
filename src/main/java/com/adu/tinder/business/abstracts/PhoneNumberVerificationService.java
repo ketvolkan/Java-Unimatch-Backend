@@ -7,7 +7,7 @@ import com.adu.tinder.entities.concretes.PhoneNumberVerification;
 
 import java.util.List;
 
-public interface PhoneNumberVerificationManager {
+public interface PhoneNumberVerificationService {
     Result add(PhoneNumberVerification phoneNumberVerification);
     Result delete(PhoneNumberVerification phoneNumberVerification);
     Result update(PhoneNumberVerification phoneNumberVerification);

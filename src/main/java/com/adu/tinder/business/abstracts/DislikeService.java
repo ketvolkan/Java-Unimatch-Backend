@@ -8,7 +8,7 @@ import com.adu.tinder.entities.concretes.Dislike;
 
 import java.util.List;
 
-public interface DislikeManager {
+public interface DislikeService {
     DataResult<List<Dislike>> getAll();
     DataResult<List<Dislike>> getAllByDislikeId(int id);
     DataResult<List<Dislike>> getAllByOutOfFavorId(int id);

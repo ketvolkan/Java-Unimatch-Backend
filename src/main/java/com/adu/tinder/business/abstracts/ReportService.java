@@ -6,7 +6,7 @@ import com.adu.tinder.entities.concretes.Report;
 
 import java.util.List;
 
-public interface ReportManager {
+public interface ReportService {
     DataResult<List<Report>> getAll();
     DataResult<List<Report>> getAllByUserId(int id);
     DataResult<List<Report>> getAllById(int id);

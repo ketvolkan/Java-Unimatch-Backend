@@ -8,7 +8,7 @@ import com.adu.tinder.entities.concretes.Like;
 
 import java.util.List;
 
-public interface LikeManager {
+public interface LikeService {
     DataResult<List<Like>> getAll();
     DataResult<List<Like>> getAllByLikesId(int id);
     DataResult<List<Like>> getAllByPopularId(int id);

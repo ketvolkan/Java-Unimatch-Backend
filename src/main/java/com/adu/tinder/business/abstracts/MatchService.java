@@ -7,7 +7,7 @@ import com.adu.tinder.entities.concretes.Match;
 
 import java.util.List;
 
-public interface MatchManager {
+public interface MatchService {
     DataResult<List<Match>> getAll();
     DataResult<List<Match>> getAllByUserId1(int id);
     DataResult<List<Match>> getAllByUserId2(int id);

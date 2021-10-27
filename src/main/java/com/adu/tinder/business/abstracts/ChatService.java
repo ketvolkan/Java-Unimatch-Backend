@@ -1,4 +1,5 @@
 package com.adu.tinder.business.abstracts;
 
-public interface UserManager {
+public interface ChatService {
+
 }

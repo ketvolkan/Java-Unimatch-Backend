@@ -7,7 +7,7 @@ import com.adu.tinder.entities.concretes.UserPhoto;
 
 import java.util.List;
 
-public interface UserPhotoManager {
+public interface UserPhotoService {
     Result add(UserPhoto userPhoto);
     Result delete(UserPhoto userPhoto);
     Result update(UserPhoto userPhoto);
