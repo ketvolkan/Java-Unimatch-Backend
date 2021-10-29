@@ -19,11 +19,11 @@ public class UserAnswer implements Entities {
     private int id;
 
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User userId;
 
     @ManyToOne
-    @Column(name = "answer_id")
+    @JoinColumn(name = "answer_id")
     private QuestionAnswer answerId;
 
 

@@ -19,10 +19,10 @@ public class Like implements Entities {
     private int id;
 
     @ManyToOne
-    @Column(name = "popular_id")
+    @JoinColumn(name = "popular_id")
     private User popularId;
 
     @ManyToOne
-    @Column(name = "likes_id")
+    @JoinColumn(name = "likes_id")
     private User likesId;
 }

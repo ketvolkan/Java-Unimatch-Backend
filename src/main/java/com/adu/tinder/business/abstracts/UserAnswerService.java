@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserAnswerService {
     DataResult<List<UserAnswer>> getByUserId(int id);
     DataResult<List<UserAnswer>> getByAnswer(int answer);
-    DataResult<List<UserAnswer>> getByQuestionId(int questionId);
+
     DataResult<List<UserAnswer>> getAll();
     Result add(UserAnswer userAnswer);
     Result update(UserAnswer userAnswer);

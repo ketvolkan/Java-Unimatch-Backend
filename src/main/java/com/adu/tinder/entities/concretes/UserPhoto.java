@@ -19,7 +19,7 @@ public class UserPhoto  implements Entities {
     private int id;
 
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User userId;
 
     @Column(name = "photo_url")

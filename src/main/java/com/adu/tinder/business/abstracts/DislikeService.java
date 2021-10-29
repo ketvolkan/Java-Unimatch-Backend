@@ -12,9 +12,7 @@ public interface DislikeService {
     DataResult<List<Dislike>> getAll();
     DataResult<List<Dislike>> getAllByDislikeId(int id);
     DataResult<List<Dislike>> getAllByOutOfFavorId(int id);
-    DataResult<List<Dislike>> getAllByActive(boolean active);
     Result add(Dislike dislike);
     Result delete(Dislike dislike);
     Result update(Dislike dislike);
-    Result changeActivity(int id);
 }

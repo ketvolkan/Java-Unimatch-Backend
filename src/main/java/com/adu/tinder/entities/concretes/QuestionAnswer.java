@@ -22,7 +22,7 @@ public class QuestionAnswer implements Entities {
     private int id;
 
     @ManyToOne
-    @Column(name = "question_id")
+    @JoinColumn(name = "question_id")
     private UserQuestion questionId;
 
     @Column(name = "answer")

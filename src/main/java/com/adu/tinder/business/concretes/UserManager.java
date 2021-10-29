@@ -3,6 +3,8 @@ package com.adu.tinder.business.concretes;
 import com.adu.tinder.business.abstracts.UserService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
+import com.adu.tinder.core.utilities.results.SuccessDataResult;
+import com.adu.tinder.core.utilities.results.SuccessResult;
 import com.adu.tinder.dataAccess.abstracts.UserDao;
 import com.adu.tinder.entities.concretes.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,47 +22,48 @@ public class UserManager implements UserService {
 
     @Override
     public DataResult<List<User>> getAll() {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.findAll(),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<User>> getByPhoneNumber(String phoneNumber) {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.getByPhoneNumber(phoneNumber),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<User>> getById(int id) {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.getById(id),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<User>> getByNationalityId(String nationalityId) {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.getByNationalityId(nationalityId),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<User>> getByGender(char gender) {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.getByGender(gender),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<User>> getByVerifiedAccount(boolean verifiedAccount) {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.getByVerifiedAccount(verifiedAccount),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<User>> getByMail(String mail) {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.getByMail(mail),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<User>> getByActive(boolean active) {
-        return null;
+        return new SuccessDataResult<List<User>>(userDao.getByActive(active),"Listeleme Başarılı");
     }
 
     @Override
     public Result add(User user) {
-        return null;
+        this.userDao.save(user);
+        return new SuccessResult("Listeleme Başarılı");
     }
 
     @Override

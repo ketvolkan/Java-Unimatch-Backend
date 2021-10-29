@@ -33,11 +33,6 @@ public class DislikeManager implements DislikeService {
     }
 
     @Override
-    public DataResult<List<Dislike>> getAllByActive(boolean active) {
-        return null;
-    }
-
-    @Override
     public Result add(Dislike dislike) {
         return null;
     }
@@ -52,8 +47,4 @@ public class DislikeManager implements DislikeService {
         return null;
     }
 
-    @Override
-    public Result changeActivity(int id) {
-        return null;
-    }
 }

@@ -28,10 +28,6 @@ public class UserAnswerManager implements UserAnswerService {
         return null;
     }
 
-    @Override
-    public DataResult<List<UserAnswer>> getByQuestionId(int questionId) {
-        return null;
-    }
 
     @Override
     public DataResult<List<UserAnswer>> getAll() {

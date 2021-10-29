@@ -2,9 +2,7 @@ package com.adu.tinder.entities.concretes;
 
 import com.adu.tinder.entities.abstracts.Entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -54,42 +52,69 @@ public class User implements Entities {
     private Date dateOfBirth;
 
     //ilişkiler
+
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="blockedId")
     private List<Blocked> blockedId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="blockingId")
     private List<Blocked> blockingId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="dislikeId")
     private List<Dislike> dislikeId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="outOfFavorId")
     private List<Dislike> outOfFavorId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="popularId")
     private List<Like> popularId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="likesId")
     private List<Like> likesId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="userId")
     private List<MailVerification> mailVerificationUserId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="userId1")
     private List<Match> matchUserId1;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="userId2")
     private List<Match> matchUserId2;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="userId")
     private List<PhoneNumberVerification> phoneNumberVerificationsUserId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="userId")
     private List<Report> reportUserId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="userId")
     private List<UserAnswer> userAnswersUserId;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="userId")
     private List<UserPhoto> userPhotoUserId;
 }

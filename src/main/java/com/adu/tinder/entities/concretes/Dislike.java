@@ -19,11 +19,11 @@ public class Dislike implements Entities {
     private int id;
 
     @ManyToOne
-    @Column(name = "dislike_id")
+    @JoinColumn(name = "dislike_id")
     private User dislikeId;
 
     @ManyToOne
-    @Column(name = "out_of_favor_id")
+    @JoinColumn(name = "out_of_favor_id")
     private User outOfFavorId;
 }
 

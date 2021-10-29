@@ -19,7 +19,7 @@ public class Report implements Entities {
     private int id;
 
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User userId;
 
     @Column(name = "issue")

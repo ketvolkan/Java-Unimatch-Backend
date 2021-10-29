@@ -33,11 +33,6 @@ public class LikeManager implements LikeService {
     }
 
     @Override
-    public DataResult<List<Like>> getAllByActive(boolean active) {
-        return null;
-    }
-
-    @Override
     public Result add(Like like) {
         return null;
     }
@@ -52,8 +47,4 @@ public class LikeManager implements LikeService {
         return null;
     }
 
-    @Override
-    public Result changeActivity(int id) {
-        return null;
-    }
 }
