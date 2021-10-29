@@ -3,13 +3,20 @@ package com.adu.tinder.business.concretes;
 import com.adu.tinder.business.abstracts.DislikeService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
+import com.adu.tinder.dataAccess.abstracts.DislikeDao;
 import com.adu.tinder.entities.concretes.Dislike;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class DislikeManager implements DislikeService {
+    private DislikeDao dislikeDao;
+    @Autowired
+    DislikeManager(DislikeDao dislikeDao){
+        this.dislikeDao = dislikeDao;
+    }
     @Override
     public DataResult<List<Dislike>> getAll() {
         return null;

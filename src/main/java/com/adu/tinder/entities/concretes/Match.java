@@ -18,11 +18,13 @@ public class Match implements Entities {
     @Column(name = "id")
     private int id;
 
+    @ManyToOne
     @Column(name = "user_id_1")
-    private int userId1;
+    private User userId1;
 
+    @ManyToOne
     @Column(name = "user_id_2")
-    private int userId2;
+    private User userId2;
 
     @Column(name = "active")
     private boolean active;

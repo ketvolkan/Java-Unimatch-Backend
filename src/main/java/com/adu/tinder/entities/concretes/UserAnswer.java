@@ -18,14 +18,13 @@ public class UserAnswer implements Entities {
     @Column(name = "id")
     private int id;
 
+    @ManyToOne
     @Column(name = "user_id")
-    private int userId;
+    private User userId;
 
-    @Column(name = "question_id")
-    private int question;
-
-    @Column(name = "answer")
-    private int answer;
+    @ManyToOne
+    @Column(name = "answer_id")
+    private QuestionAnswer answerId;
 
 
 }

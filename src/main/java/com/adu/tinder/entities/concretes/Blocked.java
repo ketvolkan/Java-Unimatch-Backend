@@ -18,11 +18,13 @@ public class Blocked implements Entities {
     @Column(name = "id")
     private int id;
 
+    @ManyToOne
     @Column(name = "blocked_id")
-    private int blockedId;
+    private User blockedId;
 
+    @ManyToOne
     @Column(name = "blocking_id")
-    private int blockingId;
+    private User blockingId;
 
     @Column(name = "active")
     private boolean active;

@@ -18,8 +18,9 @@ public class PhoneNumberVerification implements Entities {
     @Column(name = "id")
     private int id;
 
+    @ManyToOne
     @Column(name = "user_id")
-    private int userId;
+    private User userId;
 
     @Column(name = "approved")
     private boolean approved;

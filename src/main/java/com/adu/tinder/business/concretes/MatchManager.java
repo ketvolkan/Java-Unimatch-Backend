@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class MatchManager implements MatchService {
+
     @Override
     public DataResult<List<Match>> getAll() {
         return null;

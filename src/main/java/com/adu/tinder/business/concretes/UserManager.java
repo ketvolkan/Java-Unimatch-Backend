@@ -3,13 +3,21 @@ package com.adu.tinder.business.concretes;
 import com.adu.tinder.business.abstracts.UserService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
+import com.adu.tinder.dataAccess.abstracts.UserDao;
 import com.adu.tinder.entities.concretes.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserManager implements UserService {
+    private UserDao userDao;
+    @Autowired
+    public UserManager(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     @Override
     public DataResult<List<User>> getAll() {
         return null;

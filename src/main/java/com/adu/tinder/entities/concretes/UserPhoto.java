@@ -18,8 +18,9 @@ public class UserPhoto  implements Entities {
     @Column(name = "id")
     private int id;
 
+    @ManyToOne
     @Column(name = "user_id")
-    private int userId;
+    private User userId;
 
     @Column(name = "photo_url")
     private String photoUrl;
