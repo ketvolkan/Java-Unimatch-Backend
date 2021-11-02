@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.2
--- Dumped by pg_dump version 13.2
+-- Dumped from database version 14.0
+-- Dumped by pg_dump version 14.0
 
--- Started on 2021-10-09 12:10:54
+-- Started on 2021-10-29 16:08:09
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 211 (class 1259 OID 106561)
+-- TOC entry 209 (class 1259 OID 16395)
 -- Name: blockeds; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -38,7 +38,7 @@ CREATE TABLE public.blockeds (
 ALTER TABLE public.blockeds OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 106559)
+-- TOC entry 210 (class 1259 OID 16398)
 -- Name: blockeds_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -53,7 +53,7 @@ ALTER TABLE public.blockeds ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 219 (class 1259 OID 106589)
+-- TOC entry 211 (class 1259 OID 16399)
 -- Name: chatting; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -63,14 +63,15 @@ CREATE TABLE public.chatting (
     " sent_id" integer NOT NULL,
     date date NOT NULL,
     message character varying(200) NOT NULL,
-    active boolean NOT NULL
+    active boolean NOT NULL,
+    sent_id integer
 );
 
 
 ALTER TABLE public.chatting OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 106587)
+-- TOC entry 212 (class 1259 OID 16402)
 -- Name: chatting_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -85,7 +86,7 @@ ALTER TABLE public.chatting ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 201 (class 1259 OID 106526)
+-- TOC entry 213 (class 1259 OID 16403)
 -- Name: developers; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -100,7 +101,7 @@ CREATE TABLE public.developers (
 ALTER TABLE public.developers OWNER TO postgres;
 
 --
--- TOC entry 200 (class 1259 OID 106524)
+-- TOC entry 214 (class 1259 OID 16406)
 -- Name: developers_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -115,7 +116,7 @@ ALTER TABLE public.developers ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 209 (class 1259 OID 106554)
+-- TOC entry 215 (class 1259 OID 16407)
 -- Name: dislikes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -129,7 +130,7 @@ CREATE TABLE public.dislikes (
 ALTER TABLE public.dislikes OWNER TO postgres;
 
 --
--- TOC entry 208 (class 1259 OID 106552)
+-- TOC entry 216 (class 1259 OID 16410)
 -- Name: dislikes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -144,7 +145,7 @@ ALTER TABLE public.dislikes ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 207 (class 1259 OID 106547)
+-- TOC entry 217 (class 1259 OID 16411)
 -- Name: likes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -158,7 +159,7 @@ CREATE TABLE public.likes (
 ALTER TABLE public.likes OWNER TO postgres;
 
 --
--- TOC entry 206 (class 1259 OID 106545)
+-- TOC entry 218 (class 1259 OID 16414)
 -- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -173,7 +174,7 @@ ALTER TABLE public.likes ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 221 (class 1259 OID 106596)
+-- TOC entry 219 (class 1259 OID 16415)
 -- Name: mail_verification; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -188,7 +189,7 @@ CREATE TABLE public.mail_verification (
 ALTER TABLE public.mail_verification OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 106594)
+-- TOC entry 220 (class 1259 OID 16418)
 -- Name: mail_verification_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -203,7 +204,7 @@ ALTER TABLE public.mail_verification ALTER COLUMN id ADD GENERATED ALWAYS AS IDE
 
 
 --
--- TOC entry 217 (class 1259 OID 106582)
+-- TOC entry 221 (class 1259 OID 16419)
 -- Name: matches; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -218,7 +219,7 @@ CREATE TABLE public.matches (
 ALTER TABLE public.matches OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 106580)
+-- TOC entry 222 (class 1259 OID 16422)
 -- Name: matches_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -233,7 +234,7 @@ ALTER TABLE public.matches ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 223 (class 1259 OID 106603)
+-- TOC entry 223 (class 1259 OID 16423)
 -- Name: phone_number_verification; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -248,7 +249,7 @@ CREATE TABLE public.phone_number_verification (
 ALTER TABLE public.phone_number_verification OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 106601)
+-- TOC entry 224 (class 1259 OID 16426)
 -- Name: phone_number_verification_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -263,7 +264,36 @@ ALTER TABLE public.phone_number_verification ALTER COLUMN id ADD GENERATED ALWAY
 
 
 --
--- TOC entry 213 (class 1259 OID 106568)
+-- TOC entry 234 (class 1259 OID 16474)
+-- Name: question_answer; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.question_answer (
+    id integer NOT NULL,
+    question_id integer NOT NULL,
+    answer character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.question_answer OWNER TO postgres;
+
+--
+-- TOC entry 235 (class 1259 OID 16477)
+-- Name: question_answer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+ALTER TABLE public.question_answer ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
+    SEQUENCE NAME public.question_answer_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- TOC entry 225 (class 1259 OID 16427)
 -- Name: reports; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -277,7 +307,7 @@ CREATE TABLE public.reports (
 ALTER TABLE public.reports OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 106566)
+-- TOC entry 226 (class 1259 OID 16430)
 -- Name: reports_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -292,7 +322,21 @@ ALTER TABLE public.reports ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 205 (class 1259 OID 106540)
+-- TOC entry 233 (class 1259 OID 16467)
+-- Name: user_answer; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_answer (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    answer_id integer NOT NULL
+);
+
+
+ALTER TABLE public.user_answer OWNER TO postgres;
+
+--
+-- TOC entry 227 (class 1259 OID 16431)
 -- Name: user_photo; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -307,7 +351,7 @@ CREATE TABLE public.user_photo (
 ALTER TABLE public.user_photo OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 106538)
+-- TOC entry 228 (class 1259 OID 16434)
 -- Name: user_photo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -322,30 +366,58 @@ ALTER TABLE public.user_photo ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 215 (class 1259 OID 106575)
+-- TOC entry 237 (class 1259 OID 16484)
+-- Name: user_question; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.user_question (
+    id integer NOT NULL,
+    question character varying(255)
+);
+
+
+ALTER TABLE public.user_question OWNER TO postgres;
+
+--
+-- TOC entry 236 (class 1259 OID 16483)
+-- Name: user_question_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.user_question_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.user_question_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3423 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: user_question_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.user_question_id_seq OWNED BY public.user_question.id;
+
+
+--
+-- TOC entry 229 (class 1259 OID 16435)
 -- Name: user_questions; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.user_questions (
     id integer NOT NULL,
-    user_id integer NOT NULL,
-    answer_1 integer NOT NULL,
-    answer_2 integer NOT NULL,
-    answer_3 integer NOT NULL,
-    answer_4 integer NOT NULL,
-    answer_5 integer NOT NULL,
-    answer_6 integer NOT NULL,
-    answer_7 integer NOT NULL,
-    answer_8 integer NOT NULL,
-    answer_9 integer NOT NULL,
-    answer_10 integer NOT NULL
+    question character varying(255) NOT NULL
 );
 
 
 ALTER TABLE public.user_questions OWNER TO postgres;
 
 --
--- TOC entry 214 (class 1259 OID 106573)
+-- TOC entry 230 (class 1259 OID 16438)
 -- Name: user_questions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -360,7 +432,7 @@ ALTER TABLE public.user_questions ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTI
 
 
 --
--- TOC entry 203 (class 1259 OID 106533)
+-- TOC entry 231 (class 1259 OID 16439)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -371,17 +443,18 @@ CREATE TABLE public.users (
     nationality_id character varying(11) NOT NULL,
     phone_number character varying(15) NOT NULL,
     gender "char" NOT NULL,
-    " verified_account" boolean NOT NULL,
     mail character varying(50) NOT NULL,
     active boolean NOT NULL,
-    date_of_birth date NOT NULL
+    date_of_birth date NOT NULL,
+    description character varying(255),
+    verified_account boolean
 );
 
 
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1259 OID 106531)
+-- TOC entry 232 (class 1259 OID 16442)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -396,7 +469,15 @@ ALTER TABLE public.users ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 2927 (class 2606 OID 106565)
+-- TOC entry 3233 (class 2604 OID 16487)
+-- Name: user_question id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_question ALTER COLUMN id SET DEFAULT nextval('public.user_question_id_seq'::regclass);
+
+
+--
+-- TOC entry 3235 (class 2606 OID 16444)
 -- Name: blockeds blockeds_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -405,7 +486,7 @@ ALTER TABLE ONLY public.blockeds
 
 
 --
--- TOC entry 2935 (class 2606 OID 106593)
+-- TOC entry 3237 (class 2606 OID 16446)
 -- Name: chatting chatting_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -414,7 +495,7 @@ ALTER TABLE ONLY public.chatting
 
 
 --
--- TOC entry 2917 (class 2606 OID 106530)
+-- TOC entry 3239 (class 2606 OID 16448)
 -- Name: developers developers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -423,7 +504,7 @@ ALTER TABLE ONLY public.developers
 
 
 --
--- TOC entry 2925 (class 2606 OID 106558)
+-- TOC entry 3241 (class 2606 OID 16450)
 -- Name: dislikes dislikes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -432,7 +513,7 @@ ALTER TABLE ONLY public.dislikes
 
 
 --
--- TOC entry 2923 (class 2606 OID 106551)
+-- TOC entry 3243 (class 2606 OID 16452)
 -- Name: likes likes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -441,7 +522,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- TOC entry 2937 (class 2606 OID 106600)
+-- TOC entry 3245 (class 2606 OID 16454)
 -- Name: mail_verification mail_verification_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -450,7 +531,7 @@ ALTER TABLE ONLY public.mail_verification
 
 
 --
--- TOC entry 2933 (class 2606 OID 106586)
+-- TOC entry 3247 (class 2606 OID 16456)
 -- Name: matches matches_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -459,7 +540,7 @@ ALTER TABLE ONLY public.matches
 
 
 --
--- TOC entry 2939 (class 2606 OID 106607)
+-- TOC entry 3249 (class 2606 OID 16458)
 -- Name: phone_number_verification phone_number_verification_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -468,7 +549,16 @@ ALTER TABLE ONLY public.phone_number_verification
 
 
 --
--- TOC entry 2929 (class 2606 OID 106572)
+-- TOC entry 3261 (class 2606 OID 16482)
+-- Name: question_answer question_answer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.question_answer
+    ADD CONSTRAINT question_answer_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3251 (class 2606 OID 16460)
 -- Name: reports reports_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -477,7 +567,16 @@ ALTER TABLE ONLY public.reports
 
 
 --
--- TOC entry 2921 (class 2606 OID 106544)
+-- TOC entry 3259 (class 2606 OID 16471)
+-- Name: user_answer user_answer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_answer
+    ADD CONSTRAINT user_answer_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3253 (class 2606 OID 16462)
 -- Name: user_photo user_photo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -486,7 +585,16 @@ ALTER TABLE ONLY public.user_photo
 
 
 --
--- TOC entry 2931 (class 2606 OID 106579)
+-- TOC entry 3263 (class 2606 OID 16489)
+-- Name: user_question user_question_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_question
+    ADD CONSTRAINT user_question_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3255 (class 2606 OID 16464)
 -- Name: user_questions user_questions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -495,7 +603,7 @@ ALTER TABLE ONLY public.user_questions
 
 
 --
--- TOC entry 2919 (class 2606 OID 106537)
+-- TOC entry 3257 (class 2606 OID 16466)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -503,7 +611,142 @@ ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
--- Completed on 2021-10-09 12:10:54
+--
+-- TOC entry 3264 (class 2606 OID 16490)
+-- Name: blockeds fk150sjnhntvxliq1fn6ek0x6l5; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.blockeds
+    ADD CONSTRAINT fk150sjnhntvxliq1fn6ek0x6l5 FOREIGN KEY (blocked_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3265 (class 2606 OID 16495)
+-- Name: blockeds fk1t8ibl6r0pdgdspchj5gxarip; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.blockeds
+    ADD CONSTRAINT fk1t8ibl6r0pdgdspchj5gxarip FOREIGN KEY (blocking_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3274 (class 2606 OID 16545)
+-- Name: reports fk2o32rer9hfweeylg7x8ut8rj2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.reports
+    ADD CONSTRAINT fk2o32rer9hfweeylg7x8ut8rj2 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3271 (class 2606 OID 16525)
+-- Name: matches fk44abv360n3f29lw4tgy5f36mo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.matches
+    ADD CONSTRAINT fk44abv360n3f29lw4tgy5f36mo FOREIGN KEY (user_id_1) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3267 (class 2606 OID 16505)
+-- Name: dislikes fk62wdd08e7axn3j4si2n3p4dey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.dislikes
+    ADD CONSTRAINT fk62wdd08e7axn3j4si2n3p4dey FOREIGN KEY (out_of_favor_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3276 (class 2606 OID 16550)
+-- Name: user_answer fk85wf6g2lw73bgq8wvi5r4mstr; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_answer
+    ADD CONSTRAINT fk85wf6g2lw73bgq8wvi5r4mstr FOREIGN KEY (answer_id) REFERENCES public.question_answer(id);
+
+
+--
+-- TOC entry 3275 (class 2606 OID 16560)
+-- Name: user_photo fk8h4itffk04ejkbshbys7r3lce; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_photo
+    ADD CONSTRAINT fk8h4itffk04ejkbshbys7r3lce FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3278 (class 2606 OID 16540)
+-- Name: question_answer fkd0nb08p291i3motpb7fiy3v12; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.question_answer
+    ADD CONSTRAINT fkd0nb08p291i3motpb7fiy3v12 FOREIGN KEY (question_id) REFERENCES public.user_question(id);
+
+
+--
+-- TOC entry 3269 (class 2606 OID 16515)
+-- Name: likes fkhkd7ofadb94uljy3dexvmde3k; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.likes
+    ADD CONSTRAINT fkhkd7ofadb94uljy3dexvmde3k FOREIGN KEY (popular_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3272 (class 2606 OID 16530)
+-- Name: matches fkioesp4tmy5icmjc0lr21346ar; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.matches
+    ADD CONSTRAINT fkioesp4tmy5icmjc0lr21346ar FOREIGN KEY (user_id_2) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3273 (class 2606 OID 16535)
+-- Name: phone_number_verification fkiqutwgpkn5tueu5r35ib56x4e; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.phone_number_verification
+    ADD CONSTRAINT fkiqutwgpkn5tueu5r35ib56x4e FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3268 (class 2606 OID 16510)
+-- Name: likes fkko4bilvl1qwax1ryccpblfilv; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.likes
+    ADD CONSTRAINT fkko4bilvl1qwax1ryccpblfilv FOREIGN KEY (likes_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3270 (class 2606 OID 16520)
+-- Name: mail_verification fkng2hagcjry8blhatecmc78ne0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.mail_verification
+    ADD CONSTRAINT fkng2hagcjry8blhatecmc78ne0 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3266 (class 2606 OID 16500)
+-- Name: dislikes fknsosiqn8ub54oxnmgcok2l575; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.dislikes
+    ADD CONSTRAINT fknsosiqn8ub54oxnmgcok2l575 FOREIGN KEY (dislike_id) REFERENCES public.users(id);
+
+
+--
+-- TOC entry 3277 (class 2606 OID 16555)
+-- Name: user_answer fktkdryvc0mh58k8mgh81nuxvhy; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.user_answer
+    ADD CONSTRAINT fktkdryvc0mh58k8mgh81nuxvhy FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+-- Completed on 2021-10-29 16:08:12
 
 --
 -- PostgreSQL database dump complete
