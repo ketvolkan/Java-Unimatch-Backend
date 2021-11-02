@@ -14,6 +14,7 @@ public interface BlockedDao extends JpaRepository<Blocked,Integer> {
     List<Blocked> getByBlockedId(int id);
     List<Blocked> getByBlockingId(int id);
     List<Blocked> getByActive(boolean active);
+    List<Blocked> getById(int id);
     @Modifying
     @Query("update Blocked j set j.active = true where j.id=:id")
     void setActive(@Param("id") int id);

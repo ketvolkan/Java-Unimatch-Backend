@@ -11,7 +11,7 @@ public interface DeveloporService {
     DataResult<List<Developer>> getAll();
     DataResult<List<Developer>> getAllById(int id);
     Result add(Developer developer);
-    Result delete(Developer developer);
-    Result update(Developer developer);
+    Result delete(int id);
+    Result update(Developer developer,int id);
 
 }

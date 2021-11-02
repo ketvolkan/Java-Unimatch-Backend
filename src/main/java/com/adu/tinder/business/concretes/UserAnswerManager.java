@@ -3,7 +3,10 @@ package com.adu.tinder.business.concretes;
 import com.adu.tinder.business.abstracts.UserAnswerService;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
+import com.adu.tinder.core.utilities.results.SuccessDataResult;
+import com.adu.tinder.core.utilities.results.SuccessResult;
 import com.adu.tinder.dataAccess.abstracts.UserAnswerDao;
+import com.adu.tinder.entities.concretes.User;
 import com.adu.tinder.entities.concretes.UserAnswer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,32 +23,42 @@ public class UserAnswerManager implements UserAnswerService {
 
     @Override
     public DataResult<List<UserAnswer>> getByUserId(int id) {
-        return null;
+        return new SuccessDataResult<List<UserAnswer>>(this.userAnswerDao.getByUserId(id),"Listeleme Başarılı");
     }
 
     @Override
     public DataResult<List<UserAnswer>> getByAnswer(int answer) {
-        return null;
+        return new SuccessDataResult<List<UserAnswer>>(this.userAnswerDao.getByAnswerId(answer),"Listeleme Başarılı");
+    }
+
+    @Override
+    public DataResult<List<UserAnswer>> getById(int id) {
+        return new SuccessDataResult<List<UserAnswer>>(this.userAnswerDao.getById(id),"Listeleme Başarılı");
     }
 
 
     @Override
     public DataResult<List<UserAnswer>> getAll() {
-        return null;
+        return new SuccessDataResult<List<UserAnswer>>(this.userAnswerDao.findAll(),"Listeleme Başarılı");
     }
 
     @Override
     public Result add(UserAnswer userAnswer) {
-        return null;
+        this.userAnswerDao.save(userAnswer);
+        return new SuccessResult("Ekleme Başarılı");
     }
 
     @Override
-    public Result update(UserAnswer userAnswer) {
-        return null;
+    public Result update(UserAnswer userAnswer,int id) {
+        UserAnswer updatedUserAnswer = this.userAnswerDao.getById(id).get(0);
+        updatedUserAnswer.setAnswerId(userAnswer.getAnswerId());
+        updatedUserAnswer.setUserId(userAnswer.getUserId());
+        return new SuccessResult("Güncelleme Başarılı");
     }
 
     @Override
-    public Result delete(UserAnswer userAnswer) {
-        return null;
+    public Result delete(int id) {
+        this.userAnswerDao.deleteById(id);
+        return new SuccessResult("Silme Başarılı");
     }
 }

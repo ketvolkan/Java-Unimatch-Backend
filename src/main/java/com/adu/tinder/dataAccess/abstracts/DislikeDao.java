@@ -13,4 +13,5 @@ import java.util.List;
 public interface DislikeDao extends JpaRepository<Dislike,Integer> {
     List<Dislike> getByDislikeId(int id);
     List<Dislike> getByOutOfFavorId(int id);
+    List<Dislike> getById(int id);
 }

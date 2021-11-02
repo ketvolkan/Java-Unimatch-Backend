@@ -13,8 +13,8 @@ public interface MatchService {
     DataResult<List<Match>> getAllByUserId2(int id);
     DataResult<List<Match>> getAllByActive(boolean active);
     Result add(Match match);
-    Result delete(Match match);
-    Result update(Match match);
+    Result delete(int id);
+    Result update(Match match,int id);
     Result changeActivity(int id);
 
 }

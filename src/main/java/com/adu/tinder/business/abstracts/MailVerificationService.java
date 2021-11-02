@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface MailVerificationService {
     Result add(MailVerification mailVerification);
-    Result delete(MailVerification mailVerification);
-    Result update(MailVerification mailVerification);
+    Result delete(int id);
+    Result update(MailVerification mailVerification,int id);
     DataResult<List<MailVerification>> getAll();
     DataResult<List<MailVerification>> getAllById(int id);
     DataResult<List<MailVerification>> getAllByCode(String code);

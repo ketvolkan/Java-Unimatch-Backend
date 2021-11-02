@@ -14,6 +14,7 @@ public interface MatchDao extends JpaRepository<Match,Integer> {
     List<Match> getByUserId1(int id);
     List<Match> getByUserId2(int id);
     List<Match> getByActive(boolean active);
+    List<Match> getById(int id);
     @Modifying
     @Query("update Match j set j.active = true where j.id=:id")
     void setActive(@Param("id") int id);

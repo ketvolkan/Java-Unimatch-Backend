@@ -12,7 +12,8 @@ public interface DislikeService {
     DataResult<List<Dislike>> getAll();
     DataResult<List<Dislike>> getAllByDislikeId(int id);
     DataResult<List<Dislike>> getAllByOutOfFavorId(int id);
+    DataResult<List<Dislike>> getAllById(int id);
     Result add(Dislike dislike);
-    Result delete(Dislike dislike);
-    Result update(Dislike dislike);
+    Result delete(int id);
+    Result update(Dislike dislike,int id);
 }

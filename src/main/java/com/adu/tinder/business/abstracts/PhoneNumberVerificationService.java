@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface PhoneNumberVerificationService {
     Result add(PhoneNumberVerification phoneNumberVerification);
-    Result delete(PhoneNumberVerification phoneNumberVerification);
-    Result update(PhoneNumberVerification phoneNumberVerification);
+    Result delete(int id);
+    Result update(PhoneNumberVerification phoneNumberVerification,int id);
     DataResult<List<PhoneNumberVerification>> getAll();
     DataResult<List<PhoneNumberVerification>> getAllById(int id);
     DataResult<List<PhoneNumberVerification>> getAllByCode(String code);

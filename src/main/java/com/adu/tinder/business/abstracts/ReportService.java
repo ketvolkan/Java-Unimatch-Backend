@@ -11,6 +11,6 @@ public interface ReportService {
     DataResult<List<Report>> getAllByUserId(int id);
     DataResult<List<Report>> getAllById(int id);
     Result add(Report report);
-    Result delete(Report report);
-    Result update(Report report);
+    Result delete(int id);
+    Result update(Report report,int id);
 }

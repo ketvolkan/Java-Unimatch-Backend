@@ -9,4 +9,5 @@ import java.util.List;
 public interface LikeDao extends JpaRepository<Like,Integer> {
     List<Like> getByLikesId(int id);
     List<Like> getByPopularId(int id);
+    List<Like> getById(int id);
 }
