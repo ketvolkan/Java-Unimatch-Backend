@@ -11,6 +11,6 @@ public interface UserQuestionService {
     DataResult<List<UserQuestion>> getAll();
     DataResult<List<UserQuestion>> getById(int id);
     Result add(UserQuestion userQuestion);
-    Result delete(UserQuestion userQuestion);
-    Result update(UserQuestion userQuestion);
+    Result delete(int id);
+    Result update(UserQuestion userQuestion,int id);
 }

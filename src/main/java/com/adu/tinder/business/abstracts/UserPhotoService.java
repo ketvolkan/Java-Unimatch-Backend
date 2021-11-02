@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface UserPhotoService {
     Result add(UserPhoto userPhoto);
-    Result delete(UserPhoto userPhoto);
-    Result update(UserPhoto userPhoto);
+    Result delete(int id);
+    Result update(UserPhoto userPhoto,int id);
     DataResult<List<UserPhoto>> getAll();
     DataResult<List<UserPhoto>> getAllById(int id);
     DataResult<List<UserPhoto>> getAllByUserId(int id);
