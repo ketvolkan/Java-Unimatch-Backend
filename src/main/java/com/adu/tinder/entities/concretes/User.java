@@ -27,9 +27,6 @@ public class User implements Entities {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "nationality_id")
-    private String nationalityId;
-
     @Column(name = "phone_number")
     private String phoneNumber;
 

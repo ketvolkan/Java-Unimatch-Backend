@@ -1,10 +1,8 @@
 package com.adu.tinder.business.concretes;
 
+import com.adu.tinder.business.abstracts.UserCheckService;
 import com.adu.tinder.business.abstracts.UserService;
-import com.adu.tinder.core.utilities.results.DataResult;
-import com.adu.tinder.core.utilities.results.Result;
-import com.adu.tinder.core.utilities.results.SuccessDataResult;
-import com.adu.tinder.core.utilities.results.SuccessResult;
+import com.adu.tinder.core.utilities.results.*;
 import com.adu.tinder.dataAccess.abstracts.UserDao;
 import com.adu.tinder.entities.concretes.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +13,11 @@ import java.util.List;
 @Service
 public class UserManager implements UserService {
     private UserDao userDao;
+    private UserCheckService userCheckService;
     @Autowired
-    public UserManager(UserDao userDao) {
+    public UserManager(UserDao userDao,UserCheckService userCheckService) {
         this.userDao = userDao;
+        this.userCheckService = userCheckService;
     }
 
     @Override
@@ -33,11 +33,6 @@ public class UserManager implements UserService {
     @Override
     public DataResult<List<User>> getById(int id) {
         return new SuccessDataResult<List<User>>(userDao.getById(id),"Listeleme Başarılı");
-    }
-
-    @Override
-    public DataResult<List<User>> getByNationalityId(String nationalityId) {
-        return new SuccessDataResult<List<User>>(userDao.getByNationalityId(nationalityId),"Listeleme Başarılı");
     }
 
     @Override
@@ -62,17 +57,46 @@ public class UserManager implements UserService {
 
     @Override
     public Result add(User user) {
-        this.userDao.save(user);
-        return new SuccessResult("Listeleme Başarılı");
+        if (userCheckService.allMatch(user)=="")
+        {
+            this.userDao.save(user);
+            return new SuccessResult("Kaydetme Başarılı");
+        }
+        else{
+            return new ErrorResult(userCheckService.allMatch(user));
+        }
+
     }
 
     @Override
-    public Result update(User user) {
-        return null;
+    public Result update(User user,int id) {
+        User updatedUser = (this.userDao.getById(id)).get(0);
+        updatedUser.setFirstName(user.getFirstName());
+        updatedUser.setDescription(user.getDescription());
+        updatedUser.setLastName(user.getLastName());
+        updatedUser.setMail(user.getMail());
+        updatedUser.setPhoneNumber(user.getPhoneNumber());
+        updatedUser.setDateOfBirth(user.getDateOfBirth());
+        updatedUser.setGender(user.getGender());
+        if (userCheckService.findByMailForUpdate(updatedUser)==true)
+        {
+            this.userDao.save(updatedUser);
+            return new SuccessResult("Güncelleme Başarılı");
+        }
+        else{
+            return new ErrorResult("This Email Already Used");
+        }
     }
 
     @Override
-    public Result delete(User user) {
-        return null;
+    public Result delete(int id) {
+        this.userDao.deleteById(id);
+        return new SuccessResult("Silme Başarılı");
+    }
+
+    @Override
+    public Result setActive(int id,boolean control) {
+        this.userDao.setActive(id,control);
+        return new SuccessResult("Aktiflik Başarıyla " +control+" 'a çevrilmiştir");
     }
 }

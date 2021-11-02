@@ -2,9 +2,7 @@ package com.adu.tinder.entities.concretes;
 
 import com.adu.tinder.entities.abstracts.Entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,6 +22,8 @@ public class UserQuestion implements Entities {
     @Column(name = "question")
     private String question;
 
+    @Setter(AccessLevel.NONE)
+    @Getter(AccessLevel.NONE)
     @OneToMany(mappedBy="questionId")
     private List<QuestionAnswer> questionId;
 

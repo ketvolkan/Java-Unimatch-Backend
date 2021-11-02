@@ -16,18 +16,43 @@ public class UsersController {
     @Autowired
     private UserManager userManager;
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public DataResult<List<User>> getAll()
     {
         return this.userManager.getAll();
     }
-    @GetMapping("/getById")
-    public DataResult<List<User>> getById(int id)
+    @GetMapping("/getAllByGender")
+    public DataResult<List<User>> getAllByGender(char gender) {return this.userManager.getByGender(gender);}
+    @GetMapping("/getAllByVerifiedAccount")
+    public DataResult<List<User>> getAllByVerifiedAccount(boolean verifiedAccount) {return this.userManager.getByVerifiedAccount(verifiedAccount);}
+    @GetMapping("/getAllByMail")
+    public DataResult<List<User>> getAllByMail(String mail)
     {
-        return this.userManager.getById(id);
+        return this.userManager.getByMail(mail);
     }
+    @GetMapping("/getAllByActive")
+    public DataResult<List<User>> getAllByActive(boolean active)
+    {
+        return this.userManager.getByActive(active);
+    }
+    @GetMapping("/getAllPhoneNumber")
+    public DataResult<List<User>> getAllByPhoneNumber(String phoneNumber) {return this.userManager.getByPhoneNumber(phoneNumber);}
+    @GetMapping("/getById")
+    public DataResult<List<User>> getById(int id) {return this.userManager.getById(id);}
     @PostMapping("/add")
     public Result add(@RequestBody User user) {
         return this.userManager.add(user);
+    }
+    @PostMapping("/update")
+    public Result update(@RequestBody User user,int id) {
+        return this.userManager.update(user,id);
+    }
+    @PostMapping("/setActive")
+    public Result setActive(@RequestBody int id,boolean control) {
+        return this.userManager.setActive(id,control);
+    }
+    @DeleteMapping("/delete")
+    public Result delete(int id) {
+        return this.userManager.delete(id);
     }
 }
