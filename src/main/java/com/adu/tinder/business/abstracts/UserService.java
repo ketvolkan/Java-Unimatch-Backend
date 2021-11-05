@@ -18,4 +18,5 @@ public interface UserService {
     Result update(User user,int id);
     Result delete(int id);
     Result setActive(int id,boolean control);
+    Result setVerified(int id,boolean control);
 }

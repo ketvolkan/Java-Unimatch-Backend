@@ -51,6 +51,10 @@ public class UsersController {
     public Result setActive(@RequestBody int id,boolean control) {
         return this.userManager.setActive(id,control);
     }
+    @PostMapping("/setVerified")
+    public Result setVerified(@RequestBody int id,boolean control) {
+        return this.userManager.setVerified(id,control);
+    }
     @DeleteMapping("/delete")
     public Result delete(int id) {
         return this.userManager.delete(id);

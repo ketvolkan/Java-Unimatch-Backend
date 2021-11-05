@@ -30,7 +30,13 @@ public class UserCheckManager implements UserCheckService {
     @Override
     public boolean findByMail(User user) {
         if(this.userDao.getByMail(user.getMail()).size()!=0) {
-            System.out.println(this.userDao.getByMail(user.getMail()));
+            return false;
+        }
+        else {return true;}
+    }
+    public boolean findByPhoneNumber(User user) {
+        if(this.userDao.getByPhoneNumber(user.getPhoneNumber()).size()!=0) {
+
             return false;
         }
         else {return true;}
@@ -41,7 +47,8 @@ public class UserCheckManager implements UserCheckService {
         String errorMessage = "";
         boolean checkFields = allFieldsAreRequired(user);
         boolean checkEmail = findByMail(user);
-        if (!checkEmail || !checkFields) {
+        boolean checkPhoneNumber = findByPhoneNumber(user);
+        if (!checkEmail || !checkFields || !checkPhoneNumber) {
 
             if (!checkEmail) {
                 errorMessage += "-This Email Already Used-";
@@ -49,6 +56,28 @@ public class UserCheckManager implements UserCheckService {
 
             if (!checkFields) {
                 errorMessage += "-Please Fill All Fields-";
+            }
+            if (!checkPhoneNumber) {
+                errorMessage += "-This Phone Number Already Used-";
+            }
+
+        }
+        return errorMessage;
+    }
+
+    @Override
+    public String allMatchForUpdate(User user) {
+        String errorMessage = "";
+        boolean checkEmail = findByMailForUpdate(user);
+        boolean checkPhoneNumber = findByPhoneNumberForUpdate(user);
+        if (!checkEmail || !checkPhoneNumber) {
+
+            if (!checkEmail) {
+                errorMessage += "-This Email Already Used-";
+            }
+
+            if (!checkPhoneNumber) {
+                errorMessage += "-This Phone Number Already Used-";
             }
 
         }
@@ -62,6 +91,16 @@ public class UserCheckManager implements UserCheckService {
                 return true;
             }else{
             return false;}
+        }
+        else {return true;}
+    }
+    @Override
+    public boolean findByPhoneNumberForUpdate(User user) {
+        if(this.userDao.getByPhoneNumber(user.getPhoneNumber()).size()!=0) {
+            if((this.userDao.getByPhoneNumber(user.getPhoneNumber()).get(0).getId()==user.getId())){
+                return true;
+            }else{
+                return false;}
         }
         else {return true;}
     }

@@ -26,6 +26,11 @@ public class MatchManager implements MatchService {
     }
 
     @Override
+    public DataResult<List<Match>> getAllById(int id) {
+        return new SuccessDataResult<List<Match>>(this.matchDao.getById(id),"Listeleme Başarılı");
+    }
+
+    @Override
     public DataResult<List<Match>> getAllByUserId1(int id) {
         return new SuccessDataResult<List<Match>>(this.matchDao.getByUserId1(id),"Listeleme Başarılı");
     }

@@ -78,13 +78,13 @@ public class UserManager implements UserService {
         updatedUser.setPhoneNumber(user.getPhoneNumber());
         updatedUser.setDateOfBirth(user.getDateOfBirth());
         updatedUser.setGender(user.getGender());
-        if (userCheckService.findByMailForUpdate(updatedUser)==true)
+        if (this.userCheckService.allMatchForUpdate(updatedUser)=="")
         {
             this.userDao.save(updatedUser);
             return new SuccessResult("Güncelleme Başarılı");
         }
         else{
-            return new ErrorResult("This Email Already Used");
+            return new ErrorResult(this.userCheckService.allMatchForUpdate(updatedUser));
         }
     }
 
@@ -98,5 +98,11 @@ public class UserManager implements UserService {
     public Result setActive(int id,boolean control) {
         this.userDao.setActive(id,control);
         return new SuccessResult("Aktiflik Başarıyla " +control+" 'a çevrilmiştir");
+    }
+
+    @Override
+    public Result setVerified(int id, boolean control) {
+        this.userDao.setVerified(id,control);
+        return new SuccessResult("Onaylama Başarıyla " +control+" 'a çevrilmiştir");
     }
 }

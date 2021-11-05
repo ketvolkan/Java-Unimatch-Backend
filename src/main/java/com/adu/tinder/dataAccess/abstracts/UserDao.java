@@ -20,5 +20,8 @@ public interface UserDao extends JpaRepository<User,Integer> {
     @Modifying
     @Query("update User j set j.active = :control where j.id=:id")
     void setActive(@Param("id") int id,@Param("control") boolean control);
+    @Modifying
+    @Query("update User j set j.verifiedAccount = :control where j.id=:id")
+    void setVerified(@Param("id") int id,@Param("control") boolean control);
 
 }

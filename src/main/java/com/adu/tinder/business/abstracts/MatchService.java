@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface MatchService {
     DataResult<List<Match>> getAll();
+    DataResult<List<Match>> getAllById(int id);
     DataResult<List<Match>> getAllByUserId1(int id);
     DataResult<List<Match>> getAllByUserId2(int id);
     DataResult<List<Match>> getAllByActive(boolean active);

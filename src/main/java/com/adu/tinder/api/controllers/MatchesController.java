@@ -17,6 +17,8 @@ public class MatchesController {
     private MatchService matchService;
     @GetMapping("/getAll")
     DataResult<List<Match>> getAll(){return this.matchService.getAll();}
+    @GetMapping("/getAllById")
+    DataResult<List<Match>> getAllById(int id){return this.matchService.getAllById(id);}
     @GetMapping("/getAllByUserId1")
     DataResult<List<Match>> getAllByUserId1(int id){return this.matchService.getAllByUserId1(id);}
     @GetMapping("/getAllByUserId2")
