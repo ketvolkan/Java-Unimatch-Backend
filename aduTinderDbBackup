@@ -440,7 +440,6 @@ CREATE TABLE public.users (
     id integer NOT NULL,
     first_name character varying(20) NOT NULL,
     last_name character varying(20) NOT NULL,
-    nationality_id character varying(11) NOT NULL,
     phone_number character varying(15) NOT NULL,
     gender "char" NOT NULL,
     mail character varying(50) NOT NULL,
