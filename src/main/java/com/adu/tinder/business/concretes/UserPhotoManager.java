@@ -35,7 +35,7 @@ public class UserPhotoManager implements UserPhotoService {
     public Result update(UserPhoto userPhoto,int id) {
         UserPhoto updatedUserPhoto = this.userPhotoDao.getById(id).get(0);
         updatedUserPhoto.setPhotoUrl(userPhoto.getPhotoUrl());
-        updatedUserPhoto.setUserId(userPhoto.getUserId());
+        updatedUserPhoto.setUser(userPhoto.getUser());
         this.userPhotoDao.save(updatedUserPhoto);
         return new SuccessResult("Güncelleme Başarılı");
     }

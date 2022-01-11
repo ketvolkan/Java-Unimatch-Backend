@@ -24,7 +24,7 @@ public class UserPhotosController {
         return this.userPhotoService.getAll();
     }
     @GetMapping("/getByUserId")
-    public DataResult<List<UserPhoto>> getUserById(int id) {return this.userPhotoService.getAllByUserId(id);}
+    public DataResult<List<UserPhoto>> getByUserId( int id) {return this.userPhotoService.getAllByUserId(id);}
     @GetMapping("/getById")
     public DataResult<List<UserPhoto>> getById(int id) {return this.userPhotoService.getAllById(id);}
     @GetMapping("/getByPhotoUrl")

@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","JobAdvertisement"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","User"})
 public class User implements Entities {
 
     @Id
@@ -44,9 +44,11 @@ public class User implements Entities {
 
     @Column(name = "description")
     private String description;
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     //ilişkiler
 
@@ -112,6 +114,6 @@ public class User implements Entities {
 
     @Setter(AccessLevel.NONE)
     @Getter(AccessLevel.NONE)
-    @OneToMany(mappedBy="userId")
+    @OneToMany(mappedBy="user")
     private List<UserPhoto> userPhotoUserId;
 }
