@@ -2,6 +2,7 @@ package com.adu.tinder.business.abstracts;
 
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
+import com.adu.tinder.entities.concretes.User;
 import com.adu.tinder.entities.concretes.UserPhoto;
 
 
@@ -13,7 +14,7 @@ public interface UserPhotoService {
     Result update(UserPhoto userPhoto,int id);
     DataResult<List<UserPhoto>> getAll();
     DataResult<List<UserPhoto>> getAllById(int id);
-    DataResult<List<UserPhoto>> getAllByUserId(int id);
+    DataResult<List<UserPhoto>> getAllByUserId(User id);
     DataResult<List<UserPhoto>> getAllByPhotoUrl(String url);
     DataResult<List<UserPhoto>> getAllByActive(boolean active);
 }

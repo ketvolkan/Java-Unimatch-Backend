@@ -24,7 +24,7 @@ public class LikesController {
     @GetMapping("/getAllById")
     DataResult<List<Like>> getAllById(int id){return this.likeService.getAllById(id);}
     @PostMapping("/add")
-    Result add(Like like){return this.likeService.add(like);}
+    Result add(@RequestBody Like like){ return this.likeService.add(like);}
     @DeleteMapping("/delete")
     Result delete(int id){return this.likeService.delete(id);}
     @PostMapping("/update")

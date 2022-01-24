@@ -25,7 +25,7 @@ public class DislikesController {
     @GetMapping("/getAllById")
     DataResult<List<Dislike>> getAllById(int id){return this.dislikeService.getAllById(id);}
     @PostMapping("/add")
-    Result add(Dislike dislike){return this.dislikeService.add(dislike);}
+    Result add(@RequestBody Dislike dislike){return this.dislikeService.add(dislike);}
     @DeleteMapping("/delete")
     Result delete(int id){return this.dislikeService.delete(id);}
     @PostMapping("/update")

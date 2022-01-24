@@ -4,6 +4,7 @@ import com.adu.tinder.business.abstracts.UserPhotoService;
 import com.adu.tinder.business.concretes.UserPhotoManager;
 import com.adu.tinder.core.utilities.results.DataResult;
 import com.adu.tinder.core.utilities.results.Result;
+import com.adu.tinder.entities.concretes.User;
 import com.adu.tinder.entities.concretes.UserPhoto;
 import com.adu.tinder.entities.concretes.UserQuestion;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class UserPhotosController {
         return this.userPhotoService.getAll();
     }
     @GetMapping("/getByUserId")
-    public DataResult<List<UserPhoto>> getByUserId( int id) {return this.userPhotoService.getAllByUserId(id);}
+    public DataResult<List<UserPhoto>> getByUserId(@RequestBody User id) {return this.userPhotoService.getAllByUserId(id);}
     @GetMapping("/getById")
     public DataResult<List<UserPhoto>> getById(int id) {return this.userPhotoService.getAllById(id);}
     @GetMapping("/getByPhotoUrl")

@@ -6,6 +6,7 @@ import com.adu.tinder.core.utilities.results.Result;
 import com.adu.tinder.core.utilities.results.SuccessDataResult;
 import com.adu.tinder.core.utilities.results.SuccessResult;
 import com.adu.tinder.dataAccess.abstracts.UserPhotoDao;
+import com.adu.tinder.entities.concretes.User;
 import com.adu.tinder.entities.concretes.UserPhoto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,7 +52,7 @@ public class UserPhotoManager implements UserPhotoService {
     }
 
     @Override
-    public DataResult<List<UserPhoto>> getAllByUserId(int id) {
+    public DataResult<List<UserPhoto>> getAllByUserId(User id) {
         return new SuccessDataResult<List<UserPhoto>>(this.userPhotoDao.getByUserId(id),"Listeleme Başarılı");
     }
 

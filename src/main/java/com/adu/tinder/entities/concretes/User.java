@@ -62,25 +62,7 @@ public class User implements Entities {
     @OneToMany(mappedBy="blockingId")
     private List<Blocked> blockingId;
 
-    @Setter(AccessLevel.NONE)
-    @Getter(AccessLevel.NONE)
-    @OneToMany(mappedBy="dislikeId")
-    private List<Dislike> dislikeId;
 
-    @Setter(AccessLevel.NONE)
-    @Getter(AccessLevel.NONE)
-    @OneToMany(mappedBy="outOfFavorId")
-    private List<Dislike> outOfFavorId;
-
-    @Setter(AccessLevel.NONE)
-    @Getter(AccessLevel.NONE)
-    @OneToMany(mappedBy="popularId")
-    private List<Like> popularId;
-
-    @Setter(AccessLevel.NONE)
-    @Getter(AccessLevel.NONE)
-    @OneToMany(mappedBy="likesId")
-    private List<Like> likesId;
 
     @Setter(AccessLevel.NONE)
     @Getter(AccessLevel.NONE)
